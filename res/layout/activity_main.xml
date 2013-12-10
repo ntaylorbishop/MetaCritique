@@ -34,7 +34,7 @@
 	        android:hint="@string/search"
 	        android:inputType="text" />
 	    <ImageButton
-	        android:id="@+id/SeachBtn"
+	        android:id="@+id/SearchBtn"
 	        android:layout_height="45dp"
 	        android:layout_width="45dp" 
 	        android:layout_below="@id/titleBar"
@@ -46,7 +46,7 @@
 	    
 	<TextView
 	    android:id="@+id/txtDisplay"
-	    android:layout_width="wrap_content"
+	    android:layout_width="270dp"
 	    android:layout_height="wrap_content"
 	    android:text="@string/txtDisplay"
 	    android:gravity="center_horizontal"

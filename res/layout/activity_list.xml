@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+<!-- Title Bar -->
+	<ImageView
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:src="@drawable/grey_stroke" />
+		<ImageView
+		    android:id="@+id/titleBar"
+		    android:layout_width="fill_parent"
+		    android:layout_height="90dp"
+		    android:src="@drawable/black_stroke" />
+		<ImageView
+		    android:id="@+id/logo"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:src="@drawable/logo" />
+
+<!-- Search -->
+	<ImageView 
+	    android:id="@+id/searchBox"
+	    android:layout_width="fill_parent"
+	    android:layout_height="50dp"
+	    android:layout_below="@id/titleBar"
+	    android:src="#ffd434" />
+	    <EditText
+	        android:id="@+id/SearchBar"
+	        android:layout_width="300dp"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/titleBar"
+	        android:hint="@string/search"
+	        android:inputType="text" />
+	    <ImageButton
+	        android:id="@+id/SearchBtn"
+	        android:layout_height="45dp"
+	        android:layout_width="45dp" 
+	        android:layout_below="@id/titleBar"
+	        android:layout_toRightOf="@id/SearchBar"
+	        android:layout_marginLeft="10dp"
+	        android:src="@drawable/icon_magnifying_glass"
+	        android:scaleType="fitCenter"
+	        android:adjustViewBounds="true" />
+	    
+<!-- List -->
+
+	<ListView
+	    android:id="@+id/srcList"
+	    android:layout_width="fill_parent"
+	    android:layout_height="match_parent"
+	    android:layout_below="@id/searchBox" />
+	    
+</RelativeLayout>
