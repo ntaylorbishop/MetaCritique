@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <array name="colors_values">
+        <item>#FFFF0000</item>
+        <item>#FF00FF00</item>
+        <item>#FF0000FF</item>
+        <item>#FF000000</item>
+        <item>#FFFF9933</item>
+        <item>#FFFF0000</item>
+        <item>#FF660099</item>
+        <item>#FF663300</item>
+        <item>#FFFFFFFF</item>
+        <item>#FFCCCCCC</item>
+        <item>#FF00CCFF</item>
+        <item>#FFFFFF66</item>
+        <item>#FFFFCC00</item>
+        <item>#FFCC9900</item>
+        <item>#FFFFFF33</item>
+        <item>#FFFF3300</item>
+        <item>#FF33FF99</item>
+        <item>#FFFF3333</item>
+        <item>#FFFF9966</item>
+        <item>#FFFAFAFA</item>
+        <item>#FF33CC00</item>
+        <item>#FF333333</item>
+        <item>#FF336633</item>
+        <item>#FF669900</item>
+        <item>#FFCC0099</item>
+        <item>#FF996633</item>
+        <item>#FF33CCCC</item>
+    </array>
+</resources>

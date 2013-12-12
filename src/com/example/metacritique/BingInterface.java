@@ -1,18 +1,49 @@
 package com.example.metacritique;
 
+import java.io.IOException;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+
+import android.os.AsyncTask;
+import android.util.Log;
+
 public class BingInterface {
 	
-	private String searchTerm;
-	
-	public BingInterface(String search) {
-		searchTerm = new String();
-		searchTerm = search;
+	//Convert search term into a valid URL
+	public String makeTextBingable(String str) {
+		String bingableText = new String();
+		String[] toks = str.split(" ");
+		
+		bingableText += "http://www.bing.com/search?q=";
+		for(int i = 0; i < toks.length; i++) {
+			bingableText += toks[i] + "+";
+		}
+		
+		bingableText += "metacritic";
+		
+		return bingableText;
 	}
 	
-	public void makeTextMetable() {
+	public String getMetaURL(String src) {
 		
-	}
-	public void makeTextBingable() {
+		String url = "http://www.metacritic.com/";
+		int pos = src.indexOf(url) + url.length() - 1;
 		
+		boolean end = false;
+		while(!end) {
+			pos++;
+			if(src.charAt(pos) != '\"') {
+				url += src.charAt(pos);
+			}
+			else
+				end = true;
+		}
+		return url;
 	}
 }
