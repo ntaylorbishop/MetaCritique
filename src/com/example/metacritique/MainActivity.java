@@ -264,4 +264,20 @@ public class MainActivity extends Activity {
 	    	
 	    }
 	}
+	
+	//Add developer name to settings key
+	@Override
+	public boolean onKeyDown(int keycode, KeyEvent e) {
+	    switch(keycode) {
+	        case KeyEvent.KEYCODE_MENU:
+	        	Context context = getApplicationContext();
+	        	CharSequence text = "Nathaniel Bishop";
+	        	int duration = Toast.LENGTH_LONG;
+
+	        	Toast toast = Toast.makeText(context, text, duration);
+	        	toast.show();
+	            return true;
+	    }
+	    return super.onKeyDown(keycode, e);
+	}
 }
