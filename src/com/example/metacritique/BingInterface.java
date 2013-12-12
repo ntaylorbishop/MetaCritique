@@ -46,4 +46,14 @@ public class BingInterface {
 		}
 		return url;
 	}
+	
+	public int checkForProperResult(String URL) {
+		Log.d("meta", URL);
+		if(URL.indexOf("www.metacritic.com/=") != -1)
+			return 1;
+		else if(URL.indexOf("www.metacritic.com") != -1 && (URL.indexOf("www.metacritic.com/game/") == -1 && URL.indexOf("www.metacritic.com/movie/") == -1))
+			return 2;
+		else
+			return 0;
+	}
 }

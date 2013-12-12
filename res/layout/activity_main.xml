@@ -54,6 +54,16 @@
             android:gravity="center_horizontal"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true" />
+        
+        
+        <ProgressBar
+	        android:id="@+id/progBar"
+	        android:layout_height="45dp"
+            android:layout_width="45dp" 
+            android:layout_below="@id/titleBar"
+            android:layout_toRightOf="@id/SearchBar"
+            android:layout_marginLeft="10dp" >
+		</ProgressBar>
 	
 <!-- Meta Info -->
 	<TextView
