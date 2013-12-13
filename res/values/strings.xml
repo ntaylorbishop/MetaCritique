@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MetaCritique</string>
+    <string name="app_name">Bishop</string>
     <string name="action_settings">Settings</string>
     <string name="search">Search</string>
     <string name="txtDisplay">Your results will come up here. Please search for a movie or game. Please re-enter a new search term if you wish to search for something else.</string>
