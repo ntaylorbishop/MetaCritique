@@ -122,6 +122,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		
+		//Fire off search if "Done" is pressed on soft keyboard
 		searchTxt.setOnEditorActionListener(new OnEditorActionListener() {        
 		    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 		        if(actionId==EditorInfo.IME_ACTION_DONE){
@@ -141,6 +142,7 @@ public class MainActivity extends Activity {
 		    }
 		});
 		
+		//touch listener to hide keyboard
 		layout.setOnTouchListener(new OnTouchListener() {
 
 		    public boolean onTouch(View view, MotionEvent ev) {
@@ -157,6 +159,7 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
+	//Visibility of All metacritic elements
 	public void setMetaElemsVisibility(int vis) {
 		score.setVisibility(vis);
 		title.setVisibility(vis);
@@ -272,6 +275,7 @@ public class MainActivity extends Activity {
 	    protected void onPostExecute(String result) {
 	    	showProgress(false);
 	    	
+	    	//Get meta info most relevant to search term
 	    	Meta = new MetaParse(result);
 	    	Meta.getMetaInfo();
 	    	
@@ -286,6 +290,15 @@ public class MainActivity extends Activity {
 	    	setMetaElemsVisibility(View.VISIBLE);
 	    	
 	    	Log.d("meta", Meta.getScore());
+	    	
+	    	//Catch for invalid score - throws exception if rating is NA
+	    	try {
+	    		setScoreColor(Integer.parseInt(Meta.getScore()));
+	    	}
+	    	catch(NumberFormatException e) {
+	    		setScoreColor(0);
+	    	}
+	    	
 	    	Log.d("meta", Meta.getTitle());
 	    	Log.d("meta", Meta.getGenre());
 	    	Log.d("meta", Meta.getRating());
@@ -293,8 +306,8 @@ public class MainActivity extends Activity {
 	    	Log.d("meta", Meta.getDev());
 	    	Log.d("meta", Meta.getDate());
 	    	
-	    	setScoreColor(Integer.parseInt(Meta.getScore()));
 	    	
+	    	//Set click listeners to external reviews
 	    	criticReviews.setOnClickListener(new View.OnClickListener() {
 				
 				public void onClick(View v) {
@@ -309,7 +322,7 @@ public class MainActivity extends Activity {
 					Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Meta.getUserUrl()));
 					startActivity(browserIntent);
 				}
-				
+
 			});
 	    	
 	    }

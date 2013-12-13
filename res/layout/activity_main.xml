@@ -28,7 +28,7 @@
             android:layout_height="50dp"
             android:layout_below="@id/titleBar"
             android:src="#ffd434" />
-            <EditText
+          <EditText
                 android:id="@+id/SearchBar"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
@@ -212,3 +212,19 @@
 	    android:textSize="25sp"
 	    android:text="User Reviews" />
 </RelativeLayout>
+
+<!--           <EditText
+                android:id="@+id/SearchBar"
+                android:layout_width="270dp"
+                android:layout_marginLeft="30dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleBar"
+                android:hint="@string/search"
+                android:inputType="text" />
+            	<Button
+					android:id="@+id/clearable_button_clear"
+					android:layout_width="30dp"
+					android:layout_height="30dp"
+					android:background="@drawable/image_clear"
+					android:layout_alignBaseline="@id/SearchBar"
+					android:layout_marginLeft="5dp" /> -->

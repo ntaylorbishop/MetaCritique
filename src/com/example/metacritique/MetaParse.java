@@ -63,122 +63,148 @@ public class MetaParse {
 		
 		//Get Meta Score
 		pos = src.indexOf(scoreSearch) + scoreSearch.length() - 1;
-		
-		end = false;
-		while(!end) {
-			pos++;
-			if(src.charAt(pos) != '<') {
-				MetaScore += src.charAt(pos);
-			}
-			else
-				end = true;
+		if(src.indexOf(scoreSearch) == -1) {
+			MetaScore = "NA";
 		}
-		//MetaScore.replaceAll("\\s+","");
-		//Log.d("meta", MetaScore);
+		else {
+			end = false;
+			while(!end) {
+				pos++;
+				if(src.charAt(pos) != '<') {
+					MetaScore += src.charAt(pos);
+				}
+				else
+					end = true;
+			}
+		}
 		
 		//Get Meta Rating
 		pos = src.indexOf(ratingSearch) + ratingSearch.length() - 1;
-		
-		end = false;
-		while(!end) {
-			pos++;
-			if(src.charAt(pos) != '<') {
-				MetaRating += src.charAt(pos);
+		if(src.indexOf(ratingSearch) == -1) {
+			MetaRating = "NA";
+		}
+		else {
+			end = false;
+			while(!end) {
+				pos++;
+				if(src.charAt(pos) != '<') {
+					MetaRating += src.charAt(pos);
+				}
+				else
+					end = true;
 			}
-			else
-				end = true;
 		}
 		
 		//Get Meta Summary
 		pos = src.indexOf(sumSearch) + sumSearch.length() - 1;
-				
-		end = false;
-		while(!end) {
-			pos++;
-			if(src.charAt(pos) != '\"') {
-				MetaSummary += src.charAt(pos);
-			}
-			else
-				end = true;
+		if(src.indexOf(sumSearch) == -1) {
+			MetaSummary = "Not Available";
 		}
-		fixSummary();
-		Log.d("meta", MetaSummary);		
+		else {
+			end = false;
+			while(!end) {
+				pos++;
+				if(src.charAt(pos) != '\"') {
+					MetaSummary += src.charAt(pos);
+				}
+				else
+					end = true;
+			}
+			fixSummary();
+			Log.d("meta", MetaSummary);
+		}
 		
 		//Get Meta Dev
 		pos = src.indexOf(devSearch) + devSearch.length() - 1;
-						
-		end = false;
-		while(!end) {
-			pos++;
-			if(src.charAt(pos) != '\"') {
-				MetaDev += src.charAt(pos);
-			}
-			else
-				end = true;
+		if(src.indexOf(devSearch) == -1) {
+			MetaDev = "NA";
 		}
-		fixDevString();
-		//Log.d("meta", MetaDev);		
+		else {				
+			end = false;
+			while(!end) {
+				pos++;
+				if(src.charAt(pos) != '\"') {
+					MetaDev += src.charAt(pos);
+				}
+				else
+					end = true;
+			}
+			fixDevString();
+		}
 				
 		//Get Meta Genre
 		pos = src.indexOf(genreSearch) + genreSearch.length() - 1;
-						
-		end = false;
-		while(!end) {
-			pos++;
-			if(src.charAt(pos) != '<') {
-				MetaGenre += src.charAt(pos);
-			}
-			else
-				end = true;
+		if(src.indexOf(genreSearch) == -1) {
+			MetaGenre = "NA";
 		}
-		//Log.d("meta", MetaGenre);	
+		else {	
+			end = false;
+			while(!end) {
+				pos++;
+				if(src.charAt(pos) != '<') {
+					MetaGenre += src.charAt(pos);
+				}
+				else
+					end = true;
+			}
+		}
 				
 		//Get Meta date
 		pos = src.indexOf(dateSearch) + dateSearch.length() - 1;
-						
-		end = false;
-		while(!end) {
-			pos++;
-			if(src.charAt(pos) != '<') {
-				MetaDate += src.charAt(pos);
-			}
-			else
-				end = true;
+		if(src.indexOf(dateSearch) == -1) {
+			MetaDate = "NA";
 		}
-		MetaDate = MetaDate.trim();
-		Log.d("meta", MetaDate);	
+		else {				
+			end = false;
+			while(!end) {
+				pos++;
+				if(src.charAt(pos) != '<') {
+					MetaDate += src.charAt(pos);
+				}
+				else
+					end = true;
+			}
+			MetaDate = MetaDate.trim();
+		}
 		
 		//Get critic reviews
 		pos = src.indexOf(criticSearch) + criticSearch.length() - 1;
 		CriticReviews += "http://www.metacritic.com";
-		
-		end = false;
-		while(!end) {
-			pos++;
-			if(src.charAt(pos) != '\"') {
-				CriticReviews += src.charAt(pos);
-			}
-			else
-				end = true;
+		if(src.indexOf(criticSearch) == -1) {
+			CriticReviews = "about:blank";
 		}
-		Log.d("meta", CriticReviews);
+		else {
+			end = false;
+			while(!end) {
+				pos++;
+				if(src.charAt(pos) != '\"') {
+					CriticReviews += src.charAt(pos);
+				}
+				else
+					end = true;
+			}
+		}
 		
 		//Get user reviews
 		pos = src.indexOf(userSearch) + userSearch.length() - 1;
 		UserReviews += "http://www.metacritic.com";
-		
-		end = false;
-		while(!end) {
-			pos++;
-			if(src.charAt(pos) != '\"') {
-				UserReviews += src.charAt(pos);
-			}
-			else
-				end = true;
+		if(src.indexOf(userSearch) == -1) {
+			UserReviews = "about:blank";
 		}
-		Log.d("meta", UserReviews);
+		else {
+			end = false;
+			while(!end) {
+				pos++;
+				if(src.charAt(pos) != '\"') {
+					UserReviews += src.charAt(pos);
+				}
+				else
+					end = true;
+			}
+		}
 	}
 	
+	//Getters
 	public String getTitle() {
 		return MetaTitle;
 	}
@@ -207,19 +233,23 @@ public class MetaParse {
 		return UserReviews;
 	}
 	
+	//Trimming resultant strings
 	public void fixDevString() {
 		MetaDev = MetaDev.replace('-', ' ');
 
-		String[] tokens = MetaDev.split("\\s");
+		String[] tokens = MetaDev.split("\\s"); //Strip '-' in result
 		MetaDev = "";
 
-		for(int i = 0; i < tokens.length; i++){
+		for(int i = 0; i < tokens.length; i++){	//Capitalize company name
 		    char capLetter = Character.toUpperCase(tokens[i].charAt(0));
 		    MetaDev +=  " " + capLetter + tokens[i].substring(1, tokens[i].length());
 		}
 	}
-	public void fixSummary() {
+	public void fixSummary() { //Strips metacritic escape sequences and html char sequences
 		MetaSummary = MetaSummary.replaceAll(Pattern.quote("\\"), "");
 		MetaSummary = MetaSummary.replace("&quot;", "\"");
+		MetaSummary = MetaSummary.replace("quot;", "\"");
+		MetaSummary = MetaSummary.replace("&amp;", "");
+		
 	}
 }
