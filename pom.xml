@@ -63,7 +63,7 @@ While the EULA for the Android SDK restricts distribution of those binaries, the
 <dependency>
 <groupId>org.apache.httpcomponents</groupId>
 <artifactId>httpclient</artifactId>
-<version>4.0.1</version>
+<version>4.5.13</version>
 </dependency>
 <!--  javax.microedition.khronos.*  -->
 <dependency>
